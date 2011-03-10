@@ -427,18 +427,19 @@ public class CameraSettings {
 
     public static final boolean isHDCapable(int cameraId) {
         boolean ret = false;
-        try {
+/*        try {
             ret = CamcorderProfile.get(cameraId, CamcorderProfile.QUALITY_HD) != null;
         } catch (Exception e) {
             // Native code throws exception if not found
         }
+*/
         return ret;
     }
 
     public static int getVideoQuality(String quality) {
         final int q;
         if (VIDEO_QUALITY_YOUTUBE_HD.equals(quality) || VIDEO_QUALITY_HD.equals(quality)) {
-            q = CamcorderProfile.QUALITY_HD;
+            q = CamcorderProfile.QUALITY_HIGH;
         } else if (VIDEO_QUALITY_YOUTUBE.equals(quality) || VIDEO_QUALITY_HIGH.equals(quality)) {
             q = CamcorderProfile.QUALITY_HIGH;
         } else {

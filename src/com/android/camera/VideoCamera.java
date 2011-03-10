@@ -630,15 +630,9 @@ public class VideoCamera extends NoSearchActivity
             videoQuality =
                     intent.getIntExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
             if (videoQuality < CamcorderProfile.QUALITY_LOW ||
-                    videoQuality > CamcorderProfile.QUALITY_HD) {
+                    videoQuality > CamcorderProfile.QUALITY_HIGH) {
                 videoQuality = CamcorderProfile.QUALITY_HIGH;
             }
-        }
-
-        // Double-check to make sure this camera is HD-capable
-        if (videoQuality == CamcorderProfile.QUALITY_HD &&
-                !CameraSettings.isHDCapable(mCameraId)) {
-            videoQuality = CamcorderProfile.QUALITY_HIGH;
         }
 
         // Set video duration limit. The limit is read from the preference,
